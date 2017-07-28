@@ -142,7 +142,7 @@ are related to a given production group. It will be called several times as the
 user navigates around the SFDC portal to display details appropriate to the
 selected production group.
 
-The event has the following paramters:
+The event has the following parameters:
 
 -   PortalFwkApplicationDevice - the record corresponding to the device that has
     made the call to the Portal Framework Web Service.
@@ -209,7 +209,89 @@ the operation that they are working on. The standard application allows the user
 to upload a PDF document against a Routing Line record.
 
 When this routing line record is inherited by a released production order the
-user will see an “Instructions” button in the navigation pane in the SFDC
+user will see an “Instruction” button in the navigation pane in the SFDC
 portal. Clicking this button will display the PDF content in the portal window.
 
 This functionality can be overridden by subscribing to the follow events:
+### COD9059234.OnBeforeProdOrderRtngLineHasInstruction
+This event allows a custom subscriber to indicate if the prod. order routing line has an instruction. This is used to determine whether to display the “Instruction” button on the output screen.
+The event has the following parameters:
+-	ProdOrderRtingLine
+	- This might be a set of record if the machine center is an All Line process type
+-	HasInstruction – set the Boolean if there is an instruction available
+-	Handled – a Boolean to indicate that this event has been handled.
+
+### COD9059234.OnBeforeGetProdOrderRtingLineResource
+This event can be used to set the resource that will be displayed on the instruction page.
+The event has the following parameters:
+-	ProdOrderRtingLine – single record in question for resource 
+-	ResourceValue – resource identifier path, should be unique for each file.
+	- i.e. the value consist of an identifier directory and a file name with the primary keys of the record which the resource is set against.
+-	ResourceFileExtension – the file extension of resource file
+-	Handled – a Boolean to indicate that this event has been handled.
+
+Example:
+
+Setting the resource from a sales order after getting the sales header of the ProdOrderRtingLine
+
+ResourceValue := STRSUBSTNO('%1/%2_%3',SalesOrderInstructionDirectoryName,SalesHeader."Document Type",SalesHeader."No.");
+
+ResourceFileExtension := 'pdf';
+
+Handled := TRUE;
+
+*SalesOrderInstructionDirectoryName is a function that returns ‘/SFDC/SalesOrder/Instruction’
+
+### COD9059234.OnBuildPortalResourceResponse
+This event can be used to return the resource file content. The resource file is cached on retrieve so the file content only required if the file has been updated since last response.
+The event has the following parameters:
+-	ResourceDirectoryName – the resource identifier directory 
+-	ResourceValue – resource file name
+-	LastRetrieved – the downloaded DateTime
+-	PortalFrameworkControl - record to add resouce control
+-	PortalFwkControlMetadata - record to add resouce control metadata 
+-	Handled – a Boolean to indicate that this event has been handled.
+
+Example:
+
+CASE ResourceDirectoryName OF
+  
+SalesOrderInstructionDirectoryName:
+
+BEGIN      
+
+PortalFwkApplicationDevice.SplitData(ResourceValue,ResourceKeyArray,'_');
+
+SalesHeader.SETFILTER("Document Type",ResourceKeyArray.GetValue(0));   
+   
+SalesHeader.SETRANGE("No.",ResourceKeyArray.GetValue(1));   
+
+SalesHeader.FINDFIRST;
+
+GetSalesOrderResource(SalesHeader,LastRetrieved,TempBlob,LastUpdatedDateTime);   
+   
+SFDCSetup.GET;  
+
+PortalFrameworkControl.AddNewEntry(SFDCSetup."Portal Fwk. Application ID",ResourceTxt);
+
+PortalFrameworkControl.AddMetadata(PortalFwkControlMetadata,'modifiedOn',0,FORMAT(LastUpdatedDateTime,0,'<standard,9>'));
+
+PortalFrameworkControl.AddMetadata(PortalFwkControlMetadata,'mimeType',0,SFDCPageDefinitionMgt.GetMimeType('pdf'));
+
+IF (LastRetrieved = 0DT) OR (ROUNDDATETIME(LastUpdatedDateTime,1000,'<') > LastRetrieved) THEN
+
+PortalFrameworkControl.AddMetadataBlob(PortalFwkControlMetadata,'content',0,SFDCPageDefinitionMgt.BlobToBase64String(TempBlob));
+
+Handled := TRUE;
+
+END;
+
+END;
+
+*PortalFwkApplicationDevice: Record 9059291
+*SFDCPageDefinitionMgt: Codeunit 9059234
+*GetSalesOrderResource is function which will return the resource content in TempBlob if the file has been updated since the last download. Set LastUpdatedDateTime to CURRENTDATETIME if not available.  
+
+
+
+
