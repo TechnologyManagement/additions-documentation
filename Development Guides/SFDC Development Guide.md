@@ -243,7 +243,7 @@ Handled := TRUE;
 *SalesOrderInstructionDirectoryName is a function that returns ‘/SFDC/SalesOrder/Instruction’
 
 ### COD9059234.OnBuildPortalResourceResponse
-This event can be used to return the resource file content. The resource file is cached on retrieve so the file content only required if the file has been updated since last response.
+This event can be used to return the resource file content. The resource file is cached on retrieve so the file content is only required if the file has been updated since last response.
 The event has the following parameters:
 -	ResourceDirectoryName – the resource identifier directory 
 -	ResourceValue – resource file name
@@ -289,7 +289,9 @@ END;
 END;
 
 *PortalFwkApplicationDevice: Record 9059291
+
 *SFDCPageDefinitionMgt: Codeunit 9059234
+
 *GetSalesOrderResource is function which will return the resource content in TempBlob if the file has been updated since the last download. Set LastUpdatedDateTime to CURRENTDATETIME if not available.  
 
 
