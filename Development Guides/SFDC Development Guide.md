@@ -19,7 +19,7 @@ Contents
 
 -   [Handling Device Activity](#handling-device-activity)
 
--   [Production Groups](#adding-controls)
+-   [Production Groups](#production-groups)
 
 -   [Instructions](#instructions)
 
