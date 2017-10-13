@@ -1,3 +1,48 @@
+
+SPM1.1.0.2
+========
+
+Shipment Date field renamed
+----------------------------------------------
+
+
+SPM1.1
+========
+
+Include Purchase Orders to Update Existing documents
+----------------------------------------------
+
+The Update Existing Documents action on the Shipment Management page only caters for Sales Lines at the moment. Modify to update Purchase Line too.
+
+
+Support for Additional Document Types
+----------------------------------------------
+
+Currently we only support sales order lines on the Shipment Management page to plan shipments of orders that are going to be made.<div><br></div><div>We need to expand this to include support for the following document types:</div><div><ul><li>Sales Return Orders</li><li>Purchase Orders</li><li>Purchase Return Orders</li></ul><div>Extend the existing logic for sales orders that populates the Shpt. Mgt. Post Code / Shpt. Mgt. Country/Region Code and related line-level fields to work with sales return orders.</div></div><div><br></div><div>Mirror the functionality on Purchase Header and Purchase Lines.</div><div><br></div><div>The intention is that the user will be able to manage collections as well as deliveries using Shipment Mgt. For now we will not attempt the differentiate between deliveries and collections (for example, we might say that collections should always go at the end of a Shpt. Mgt. Group - but that is out of scope for now).</div>
+
+Recalc. after Moving Lines
+----------------------------------------------
+
+The result of the Move Lines action isn't apparent until the Shipment Management page has been recalculated.&nbsp;
+
+Renaming Delivery Area Line error
+----------------------------------------------
+
+<p><br></p>
+
+SPM1.1.0.1
+========
+
+Incorrect Filter on Route Selection When Moving Lines
+----------------------------------------------
+
+The Shipment Date filter that is applied is &gt;[Shipment Date] rather than &gt;=[Shipment Date] meaning that routes which are due to leave on the same day cannot be selected.
+
+Shipment Management Group 0 Does Not Exist
+----------------------------------------------
+
+<ul><li>Multiple Shipment Mgt. Groups exist for the same delivery area code / delivery schedule</li><li>Attempt to add a new sales line that would be added to one of those groups</li><li>&quot;Shipment Management Group 0 does not exist&quot; error is displayed.</li></ul>
+
 SPM1.0.7
 ========
 
