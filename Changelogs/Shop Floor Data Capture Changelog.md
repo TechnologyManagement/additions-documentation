@@ -1,3 +1,43 @@
+
+SFDC1.2.6.2
+=========
+
+Output lot subform is not close on Assign Lot action
+------------------------------------------
+
+<span style="margin:0px;font-family:&quot;Calibri&quot;,sans-serif;font-size:11pt;"><font color="#000000">Assign Lot action doesn't close the subform resulting in subform in subform not supported error.</font></span>
+
+ SFDC1.2.6.1
+=========
+
+COMPONENTS_LIST contorl data already exists
+------------------------------------------
+
+COD9059234.AddComponentsGrid &amp;&nbsp;AddConsolidateComponentsGrid() - Variant column no is set to 3 rather than using the ColumnNo variable.
+
+SFDC1.2.6
+=========
+Ability to Override Logic for Retrieving Instructions
+------------------------------------------
+
+Individual implementations of SFDC may have a need to override the logic surrounding the storage and retrieval of instruction files.<div><br></div><div>It should be possible for the project to override this logic so that content can be retrieved from a different table (than the Routing Line table where the instructions are currently stored).</div>
+
+Device Switching
+------------------------------------------
+
+Better ability to switch between machine centers to manage multiple machines from a single device.<div><br></div><div>New <i>Switch</i> action on the navigation pane<i>&nbsp;</i>to present tiles selection grid to navigate to the url of another 'device'. 'Device' in this context may be 1:1 with machine centre so that each tile represents a separate url to manage a different machine.</div>
+
+Events Before Output/Consumption Item Jnl. Lines are Posted
+------------------------------------------
+
+
+Create new events prior to item journal lines being posted for output and consumption. Include the ItemJnlLine as a VAR parameter to the events.
+
+Assumption that Previous Operation No. is a Single Value
+------------------------------------------
+
+The &quot;Previous Operation No.&quot; field can actually contain multiple values i.e. the operation no. of multiple previous operations. SFDC assumes that this field always contains a single value e.g. GETting the previous prod. order routing line. If this field contains multiple values the GET will fail.
+
 SFDC1.2.5
 =========
 

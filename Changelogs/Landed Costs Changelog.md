@@ -1,3 +1,25 @@
+
+LC3.7.2.1
+=========
+
+Generating Expected Cost Invoices When Handheld Installed
+--------------------------------------------------
+
+The expected cost worksheet gives the user the ability to generate a purchase invoice for the expected cost of receipts (Duty, Freight) and automatically populates the Item Charge Assignment behind the purchase line.<div><br></div><div>Landed Costs uses the Expected Costs Received table to create the Item Charge Assignment with the correct Receipt No. and Receipt Line No.</div><div><br></div><div>Trouble is, Handheld changes the Line No. that Purch. Rcpt. Lines have so the lines that the Expected Costs Received table point to lines that don't actually exist, so the purchase invoice fails to post.</div>
+
+Disallow Deletion of Posted Purchase Receipts for Expected Item Costs
+--------------------------------------------------
+
+Standard NAV allows posted purchase receipts to be deleted. This presents a problem for Landed Costs if there are outstanding Expected Costs Received records. Without the receipt lines you cannot post a purchase invoice with item assignment.<div><br></div><div>This is the functionality that Landed Costs uses to reverse the accrued expected costs and reverse the expected cost value entries. Without the purchase receipt there is no mechanism to update these records.</div>
+
+LC3.7.2
+=========
+
+Copy Document Functionality
+--------------------------------------------------
+
+Landed Costs should tie into the copy document functionality.<div><br></div><div>When a purchase order is copied and there are Expected Costs associated with the original document&nbsp;a confirmation dialog&nbsp;should ask&nbsp;the user whether they would like to just copy the expected costs from the original line&nbsp;or to copy and update the costs for the new purchase lines. </div>
+
 LC3.7.1.1
 =========
 

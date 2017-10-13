@@ -1,3 +1,65 @@
+
+EC5.4.1
+=======
+
+Multi-Currency Support
+----------------
+
+We need some changes to make it clearer the currency that prices are quoted on the website in and the currency that the website is charging the customer in.<div><br></div><div>The currency code that is set on the customer card should be respected by the website. The NAV web services should ensure that all amounts returned to the website are consistent with the currency code of the customer.</div>
+
+Support for Multi-Currency Price Calculation
+----------------
+
+EC5.4
+=======
+
+Service to Provide Basket Validation
+----------------
+
+There are various stages in the checkout process online that it would be good to validate the contents of the basket, so that we can tell the user at the earliest opportunity of any errors that might occur when they checkout. e.g. if an item doesn't exist any more, if there is not stock left of a given item, price changes?<div><br></div><div>This service should be extended to allow NAV to pass data that is required by the site for each stage of the basket e.g. what are the valid payment methods for this basket, valid ship-to addresses, shipping option etc.</div>
+
+Shipping Service Levels
+----------------
+
+Currently shipping charges are defined per shipping agent code and shipping agent service code &amp; description. This doesn't make a lot of sense - the website isn't going to care how the goods are delivered. They only care that the goods are delivered within the time that they are expecting.<div><br></div><div>If there is a choice for the user to make it should be between different service levels e.g. same day, next day, economy - rather than between different shipping agents.</div>
+
+Web Item Description on Variants
+----------------
+
+Obsolete field &quot;Web Description&quot; on Item Variant table.
+
+
+Extra Columns in Data Transactions Web Service
+----------------
+
+Add some new columns - at the header level - to the xmlport that returns the results for the customer transactions in the MyAccount portal.<div><br></div><div>Requested Delivery Date</div><div>Promised Delivery Date</div><div>Shipment Date</div>
+
+EC5.3.1
+=======
+
+Price Break Behaviour
+----------------
+
+There are two different approaches to handling price breaks that we need to support.<div><br></div><div>First, and more common approach:</div><div><br></div><div>Imagine the first price break for an item is for a quantity of 5. We mean &quot;you can buy between 1 and 4 of these items for the base price, but if you buy 5 you get a better unit price.&quot;</div><div><br></div><div>The second approach is &quot;you cannot place an order for fewer than the quantity on the first price break i.e. you cannot place an order for fewer than 5.&quot;</div><div><br></div><div>Currently the eCommerce Mgt. codeunit creates a price break record for a quantity of 1 if it doesn't already exist. We want to make this behaviour optional.</div>
+
+Optionally Linking Contacts with Ship-to Addresses
+----------------
+
+If a customer has multiple branches they may want staff at each branch to only see their own orders in the MyAccount area of the website.<div><br></div><div>It will be possible to associate Contacts with a specific ship-to address.</div><div><br></div><div>The transactions that are returned to the MyAccount portal will be filtered by that ship-to code. Contacts that are not linked to a ship-to address will not be filtered and the MyAccount portal will show all transactions.</div>
+
+EC5.3
+=======
+
+Include Customer No. in CalcItemAvailability Event
+----------------
+
+Although the standard item availability calculation isn't dependent on the customer or location, custom logic might want to incorporate these.
+
+"Show on Web" Flag on Return Reasons
+----------------
+
+The user should be able to define the return reason codes that they want to show on the website, currently all codes are passed.
+
 EC5.2.6
 =======
 
