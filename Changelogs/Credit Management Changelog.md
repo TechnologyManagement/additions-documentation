@@ -1,3 +1,37 @@
+CH2.0.9
+=========
+
+Add Two Columns to Credit Held List
+----------------------------------------------------------------
+
+Two columns added to the Credit Held List Page:<br><p>Order Date</p><p>Amount Including VAT</p><p><br></p><p>Both these fields are on the table (Sales Header 36) , just not showing on the page</p>
+
+SQL Error when trying to filter too many Customer records.
+----------------------------------------------------------------
+
+<div>Credit Controller filter on Credit Control screen builds a text filter of customers which is too long.&nbsp;</div><div>Mark the customer records which have been found and build the page by this instead</div>
+
+CreditSafe in menu
+----------------------------------------------------------------
+
+<p>Departments -&gt; Administration -&gt; Application Setup -&gt; CreditSafe</p><p>Creditsafe is still appearing on the menu.</p><p>Takes you to credit management but no longer available</p>
+
+CH2.0.8
+=========
+
+Remove CreditSafe functionality
+----------------------------------------------------------------
+
+Removal of the CreditSafe functionality
+
+CH2.0.7
+=========
+
+Remove Credit Mgt. fast tab from Sales Documents
+----------------------------------------------------------------
+
+As in the Credit Mgt. app the Credit Mgt. fast tab should be removed to save vertical space and the Credit Mgt. Status field be moved to the General tab. The user should be able to access the other credit mgt. fields from an action on the ribbon.
+
 CH2.0.6.1
 =========
 

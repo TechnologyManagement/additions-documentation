@@ -1,3 +1,46 @@
+DD2.7.8.1
+=========
+
+Payment Journal is treated as a card page
+------------------------------------
+
+DD actions on Payment Journal should prompt DD Record Selection page
+
+DD2.7.7
+=========
+
+Dynamically Determined Attachment Paths
+------------------------------------
+
+Doc Type Attachment records allow the user to attach either 1) a report or 2) a static attachment uploaded to the attachments page to an email generated for the document type.<div><br></div><div>We need to support the ability to attach a file whose path is determined dynamically.</div>
+
+
+Expose New Event to Customise Document Log Details
+------------------------------------
+
+New integration event exposing the DD Document Log records that have been created for a given source record but prior to them being processed.
+
+DD2.7.8
+=========
+
+Get Current Document Log Record
+------------------------------------
+
+New function in Document Delivery Mgt. codeunit to retrieve the Document record that is currently being processed.
+
+Overflow Error on SetDocumentType
+------------------------------------
+
+Pass a &gt;10 length string to SetDocumentType.<div><br></div><div>Overflow error.</div>
+
+DD2.7.6.2
+=========
+
+Doc. Type Attachment Options Unreliable
+------------------------------------
+
+TAB52102237.UpdateRequestPageOptions
+
 DD2.7.6.1
 =========
 
