@@ -5,6 +5,19 @@ SPM1.1.0.2
 Shipment Date field renamed
 ----------------------------------------------
 
+SPM1.1.0.1
+========
+
+Incorrect Filter on Route Selection When Moving Lines
+----------------------------------------------
+
+The Shipment Date filter that is applied is &gt;[Shipment Date] rather than &gt;=[Shipment Date] meaning that routes which are due to leave on the same day cannot be selected.
+
+Shipment Management Group 0 Does Not Exist
+----------------------------------------------
+
+<ul><li>Multiple Shipment Mgt. Groups exist for the same delivery area code / delivery schedule</li><li>Attempt to add a new sales line that would be added to one of those groups</li><li>&quot;Shipment Management Group 0 does not exist&quot; error is displayed.</li></ul>
+
 
 SPM1.1
 ========
@@ -30,18 +43,6 @@ Renaming Delivery Area Line error
 
 <p><br></p>
 
-SPM1.1.0.1
-========
-
-Incorrect Filter on Route Selection When Moving Lines
-----------------------------------------------
-
-The Shipment Date filter that is applied is &gt;[Shipment Date] rather than &gt;=[Shipment Date] meaning that routes which are due to leave on the same day cannot be selected.
-
-Shipment Management Group 0 Does Not Exist
-----------------------------------------------
-
-<ul><li>Multiple Shipment Mgt. Groups exist for the same delivery area code / delivery schedule</li><li>Attempt to add a new sales line that would be added to one of those groups</li><li>&quot;Shipment Management Group 0 does not exist&quot; error is displayed.</li></ul>
 
 SPM1.0.7
 ========
