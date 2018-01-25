@@ -44,6 +44,11 @@ Doc Delivery
 
 -   [Changelog](Changelogs\Doc%20Delivery%20Changelog)
 
+Document Links
+------------
+
+-   [Changelog](Changelogs\Document%20Links%20Changelog)
+
 eCommerce
 ---------
 
