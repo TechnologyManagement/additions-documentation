@@ -1,3 +1,38 @@
+﻿
+# CH2.2.0.3
+## Cannot delete customer records
+<div><font style="background-color:transparent;">On deletion of the customer record the contact business relations are deleted, we subscribe to this to reset the contact no. on the customer record, this modify causes the below error.&nbsp;</font></div><div><br></div><div><i>An attempt was made to change an old version of a Customer record. The record should first be reread from the database. This is a programming error.</i></div>
+
+## Transaction must be started before changes error 
+<div><span style="display:inline !important;float:none;background-color:rgb(255, 255, 255);color:rgb(34, 34, 34);font-family:Segoe UI,Helvetica Neue,Helvetica,Arial,Verdana;font-size:14px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;">Transaction must be started before changes error from opening credit control interaction&nbsp;</span></div><div><span style="display:inline !important;float:none;background-color:rgb(255, 255, 255);color:rgb(34, 34, 34);font-family:Segoe UI,Helvetica Neue,Helvetica,Arial,Verdana;font-size:14px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;"><br></span></div><div><font style="background-color:rgb(255, 255, 255);">Insertion of&nbsp;Credit Control Temp Blob record from&nbsp;OnAfterGetRecord page trigger of Credit Control Interaction</font></div>
+
+## Pages in EDI Object Range
+Additional CH range created at 52102175 - 52102224.<div><br></div><div>Move any objects in EDI range into this new range. Repackage navx.<br><div><br></div></div>
+
+## Unprotected Customer.GET when Calculating Statistics
+TAB52102299.TransferFromCustLedgEntry should not error if the customer record cannot be found.
+
+# CH2.2.0.2
+## Transaction must be started before changes error
+<div><span style="display:inline !important;float:none;background-color:transparent;color:rgb(34, 34, 34);font-family:Segoe UI,Helvetica Neue,Helvetica,Arial,Verdana;font-size:14px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;">The factbox Clever Credit Statistic errors with 'A transaction must be started before changes can be made to the database.' on the Credit Control page.</span></div><div><span style="display:inline !important;float:none;background-color:transparent;color:rgb(34, 34, 34);font-family:Segoe UI,Helvetica Neue,Helvetica,Arial,Verdana;font-size:14px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:left;text-decoration:none;text-indent:0px;text-transform:none;white-space:normal;word-spacing:0px;"><br></span></div><div>Credit Mgt. Statistic Entry insert from the OnAfterGetRecord trigger causes the error prior to 2017.&nbsp;</div>
+
+# CH2.2.0.1
+## Upgrading Users to Credit Controllers
+
+## Upgrading Users to Credit Controllers
+<div>TAB52102288 Credit Controller has function to&nbsp;UserIDToCode</div><div><br></div><div>After checking that a credit controller exists with the same code, change the COPYSTR of the CreditControllerCode to be 2 characters shorter.</div><div><br></div>
+
+# CH2.1
+## Applying Entries
+<div class=ExternalClass21C71C08300B48DA9D93CD55E3815812><p><span id=ms-rterangecursor-start></span><span id=ms-rterangepaste-start></span>When allocating the cash receipt journal in Page 232</p><p>Apply Customer Entries they would like to see the promised payment amount.&nbsp; This will assist to identify which invoices payments refer to.<span id=ms-rterangecursor-end></span></p></div>
+
+## Parity with Clever Credit
+The functionality and design of Clever Credit has changed since branching from Credit Management. Identify the changes that have been made in Clever Credit and merge them, where appropriate, into Credit Management.
+
+# CH2.0.9.1
+## NewPassword field not removed for creditsafe integration
+<div>OnAfterGetRecord has&nbsp;</div><div><br></div><div>IF HasPassword THEN<br>NewPassword := 'Password Dots';</div><div><br></div><div>NewPassword was removed as part of the CreditSafe integration removal, but this line of code remains. Remove this code.&nbsp;</div>
+
 CH2.0.9
 =========
 
