@@ -1,4 +1,173 @@
 
+# SPM1.1.3.3
+## A new goup is created when one already exists
+<ul style="margin-top:0cm;">
+ <li style="margin:0px 0px 0px -24px;color:rgb(0, 0, 0);font-family:&quot;Calibri&quot;,sans-serif;font-size:11pt;font-style:normal;font-weight:normal;"><span style="margin:0px;">Create a SO with no Requested Delivery Date – Grp No. = 59 and
+     Shipment Date = 2<sup>nd</sup> Mar </span></li>
+ <li style="margin:0px 0px 0px -24px;color:rgb(0, 0, 0);font-family:&quot;Calibri&quot;,sans-serif;font-size:11pt;font-style:normal;font-weight:normal;"><span style="margin:0px;">Create a SO and add a Requested Delivery Date of 2<sup>nd</sup> Mar
+     <u>BEFORE</u> the lines – Grp No. = 59 and Shipment Date = 2<sup>nd</sup>
+     Mar</span></li>
+ <li style="margin:0px 0px 0px -24px;color:rgb(0, 0, 0);font-family:&quot;Calibri&quot;,sans-serif;font-size:11pt;font-style:normal;font-weight:normal;"><span style="margin:0px;">Create a SO and add a Requested Delivery Date of 2<sup>nd</sup> Mar
+     <u>AFTER</u> the lines Mar – Grp No. = 60 and Shipment Date = 2<sup>nd</sup>
+     Mar</span></li>
+</ul>
+
+## Respect customised calendar changes
+The calendar changes to the location are not respected
+
+# SPM1.1.3.2
+## Event to Check Shipment Date Validity for Source Document
+Provide an opportunity for a subscriber to indicate whether a given date is valid for a given source document.
+
+
+## Support Customised Calendars
+When scheduling source lines we currently support base calendar codes. We need to also support customised calendar codes e.g. when a Location uses a particular base calendar but has some customisation specific to that location.
+
+
+## Source Header Shipment Mgt. Date
+The Shipment Mgt. Date on the header of the source record is used as the starting date for scheduling records. This is causing more trouble than it is worth. We should use the shipment date on the source line instead.
+
+SPM1.1.2
+========
+
+ No. of Picks not Updating 
+----------------------------------------------
+
+Creating a Pick does not update the field on the shipment management page
+
+
+Only Single Warehouse Shipment Being Created
+----------------------------------------------
+
+Highlight a group line (indentation = 0) on the shipment management page and invoke the create warehouse shipments action. A warehouse shipment per source document should be created. Only a single header is being created.
+
+
+Address Fields Not Populated
+----------------------------------------------
+
+The address fields are only updated when the ship-to code is not blank. Open the delivery area page and validate the destination type and destination no. and the address fields do not show the address.<div><br></div><div>Also, creating a delivery area line using the save delivery order page does not populate these fields.</div>
+
+
+Date Used to Calculate Shipment Mgt. Group for Sales Line
+----------------------------------------------
+
+It appears that the Shipment Date from the sales header is being used to calculate the Shipment Mgt. Group for the sales line rather than the Shipment Date on the sales line.&nbsp;<div><br></div><div><div>&quot;Created a SO in Cronus, for 1 x 1000 for WHITE Location</div><div>On the lines the Shipment Date was the 10th, but the header was the 9th</div><div>Opened Shipment Management and couldn't see anything for the 10th, entered the 9th and this displayed the order.&nbsp;</div><div><br></div><div>This is incorrect, Shipment Mgt., uses the lines not the header as an order can have different shipment dates per line. See URL</div><div><br></div><div>Shipment Management Shipment Date should work at SO line level. &quot;</div><div><br></div><div><br></div></div>
+
+
+Custom Sorting Order Calculation
+----------------------------------------------
+
+The Custom Sorting Order calculation that sorts by Delivery Order needs work. It doesn't take into account that there can be multiple warehouse activity lines for the same source line e.g. because the pick can have take and place lines or the take lines can be split into multiple lines to pick from multiple bins/lots etc.
+
+
+Reverse Delivery Order Sorting for Picks
+----------------------------------------------
+
+Sometimes the warehouse will want to pick source lines in reverse delivery order so that the goods which are going to be delivered last can be loaded onto the vehicle first.<div><br></div><div>Add options to Shipment Management Setup and the pick creation routine to support this.</div>
+
+SPM1.1.1
+========
+
+Validating Sales Line Shipment Date Shows Out of Schedule Warning
+----------------------------------------------
+
+Call the function to check whether the date is valid for the given delivery date.
+
+
+Validating Ship-to Code Doesn't Recalculate Delivery Area Code
+----------------------------------------------
+
+OnValidate of the Ship-to Code call the function to calculate the delivery area code for the sales line again.
+
+
+Validating Expected Receipt Date on Purchase Header Doesn't Update Shpt. Mgt. Group on Line
+----------------------------------------------
+
+Validating the expected receipt date on the header should also update the expected receipt date on the line and therefore influence the shipment management group that the line belongs to.
+
+
+Save Delivery Order Dialog Improvements
+----------------------------------------------
+
+User should be able to see Address details on the Delivery Area lines.
+
+
+Create Default Shipment Management Setup
+----------------------------------------------
+
+Create a default Shipment Management Setup record when the extension is installed, if it doesn't already exist.
+
+
+Address Details on Delivery Area 
+----------------------------------------------
+
+User should be able to show Address and Address 2 fields that correspond to the destination type and no. that has been selected (if not blank) on the line.
+
+
+Deliver to this Post Code - 0
+----------------------------------------------
+
+The Save Delivery Order dialog shows a value of 0 for &quot;Deliver to this Post Code&quot; when the page is opened. This should show blank.
+
+
+Can Enter Destination No. and Ship-to Code with Blank Destination Type
+----------------------------------------------
+
+The user is able to enter data into the Destination No. and Ship-to Code when the Destination Type is blank. The user should only be able to populate these fields when the Destination Type is not blank and should validate the data.
+
+
+Save Delivery Order from Customer/Vendor Card
+----------------------------------------------
+
+Add the Save Delivery Order action to the Customer and Vendor card pages. This will be useful when the transport planner wants to specify the order in which all destinations within a given Delivery Order will be visited (rather than relying on post code groups). The user will be able to create a new customer and then find a space in the Delivery Area for deliveries to this customer to be made.<div><br></div><div>The same action should also be added to the Ship-to Address and Order Address cards.</div>
+
+
+Delivery Area Code for Line Level on Shipment Management Page
+----------------------------------------------
+
+We're showing three levels of grouping on the Shipment Management page: groups, drops and lines. The line level of grouping doesn't display anything in the first column (Delivery Area Code). This looks unusual - isn't obvious that there are some lines to see until the user scrolls to the right.
+
+
+Inserting Delivery Area Lines
+----------------------------------------------
+
+Currently the Delivery Area lines are sorted by Line No. - which is required by the AutoSplitKey functionality to enable the user to enter a new line anywhere on the page.<div><br></div><div>As a result, if a user creates a new Delivery Area Line by using the Save Delivery Order action the line is added to the bottom of the subpage. The Delivery Order that is assigned to the line is correct, but it looks wrong. The user will expect the lines to be shown in the order that deliveries are going to be made to them.</div><div><br></div><div>The page should be sorted by the Delivery Order column instead, but that means that the (standard)&nbsp;<b>New</b>&nbsp;action to create a new line will not work, AutoSplitKey will not know what line no. to assign to the line. We should have a new action to pop a dialog page to allow the user to enter the details to create a new line instead.</div>
+
+
+Move Delivery Area Lines Up and Down
+----------------------------------------------
+
+The current functionality is defining the next and previous lines to swap the current line with by their line numbers. The current line and the identified line are both renamed to have each other's line no.<div><br></div><div>This should be changed to find the next and previous records according to the delivery order i.e. if the current record has Delivery Order = 3 then it should be assigned Delivery Order = 2 and the existing Delivery Order = 2 record be given Delivery Order = 3.</div><div><br></div><div>Check that the page is sorted by Delivery Order before allowing the user to move up and down. If not, show an error asking them to resort the page before moving lines.</div>
+
+
+Delivery Orders not Recalculated OnDelete of Delivery Area Line
+----------------------------------------------
+
+If a Delivery Area Line is deleted the Delivery Order values of the remaining lines should be recalculated to fill the gap that has been left.<div><br></div><div>Exposed with RecalcDeliveryOrderOnDeleteOfDeliveryAreaLine test in COD90001.</div>
+
+
+Create Whse Shipment Actions Should Only Include Visible Lines
+----------------------------------------------
+
+There are a couple of actions on the Shipment Management page that create warehouse shipments for a given Shipment Mgt. Group. These actions create shipments for all source lines that belong to the highlighted group.<div><br></div><div>This should be changed to ensure that only lines which are visible on the shipment management page are included on the warehouse shipment.</div><div><br></div><div>This will be useful for customers who wish to define their own logic to determine whether a given source line should be included on the Shipment Management page or not.</div>
+
+
+Allow Custom Logic for Inclusion of Source Lines on Shipment Management Page
+----------------------------------------------
+
+The product defines some logic as to whether a source line should be included on the Shipment Management page e.g. is the source header released, respecting reservations and the shipping advice of the source document.<div><br></div><div>We want to allow custom subscribers to override/enhance this logic.</div>
+
+
+Remove Unnecessary Shipment Mgt. Fields from Posted Tables
+----------------------------------------------
+
+We have added Shipment Mgt. fields to posted sales tables for the sake of completeness, but which don't strictly need to be there. Given that on a large database, restoring this data takes a loooong time, we can remove these fields.
+
+Updating Expected Receipt Date on Header/New line added
+----------------------------------------------
+
+<div>Updating the Expected Receipt Date on the Purchase Header, updates the date on the line. However this isn't reflected in the Shpt Mgt. Group No. This also needs updating</div><div><br></div><div>When a new document is created and a line is added, the expected receipt date is calculated by std NAV. But the Shpt Mgt Group No. is not updated. Calculate the Shpt Mgt Group No. when initially creating the line</div>
+
 SPM1.1.0.2
 ========
 
@@ -77,7 +246,7 @@ management page. This should be changed to "Print Documentation". We will have
 some setup to determine which reports need to be printed.
 
 Add a new action to the Shipment Management Setup page. This will display a list
-page of reports that are to be printed when the Print DocumentationÂ action is
+page of reports that are to be printed when the Print Documentation action is
 run.
 
 The list page will allow the user to enter one or more lines of reports to be
@@ -157,12 +326,12 @@ documents.
 --------------------------------------------------------------------------
 
 Using the 'Move Drop' action on Shpt Mgt. page should move a drop for a customer
-to a same route, but increment theÂ instance no.
+to a same route, but increment the instance no.
 
 Get the following error:
 
-Need to delete theÂ shpt entry first, and use a copy to create the new
-one..withÂ a higher instanceÂ 
+Need to delete the shpt entry first, and use a copy to create the new
+one..with a higher instance 
 
 Move Lines
 ----------
@@ -245,7 +414,7 @@ Vehicles & Drivers
 ------------------
 
 We want to be able to record which driver and vehicle is delivering a certain
-route. Create two new tables to hold this master data, Shipment Mgt. VehicleÂ &
+route. Create two new tables to hold this master data, Shipment Mgt. Vehicle &
 Shipment Mgt. Driver
 
 The vehicle and driver details should be able to have default values pulled from
@@ -420,31 +589,31 @@ Ability to Move Drops Between Routes
 ------------------------------------
 
 Add a new action to the Shipment Management page to allow the user to move a
-drop between different routes. Create an action,Â Move Drop.
+drop between different routes. Create an action, Move Drop.
 
 This action should open a page with the following options:
 
-Existing RouteÂ (checkbox)\*\*
+Existing Route (checkbox)\*\*
 
-RouteÂ - allows the user to select from a Shipment Management Group (filtered to
+Route - allows the user to select from a Shipment Management Group (filtered to
 the same location) - only enabled when Existing Route is selected
 
-New RouteÂ (checkbox)\*\*
+New Route (checkbox)\*\*
 
-Delivery Area\* -Â only enabled when the New Route option is selected
+Delivery Area\* - only enabled when the New Route option is selected
 
-Shipping Agent\*Â -Â only enabled when the New Route option is selected
+Shipping Agent\* - only enabled when the New Route option is selected
 
-Shipping Agent Service\*Â -Â only enabled when the New Route option is selected
+Shipping Agent Service\* - only enabled when the New Route option is selected
 
-Shipment Date\*Â -Â only enabled when the New Route option is selected
+Shipment Date\* - only enabled when the New Route option is selected
 
 \*these fields allow the user to specify the field value for new Shipment
 Management Group that will be created. The Location Code for the new group
 should match the Location Code of the group that the drop is being moved from.
 
 \*\*these options are exclusive. Existing Route should be selected by default.
-If New Route is selected then deselect the Existing Route option.Â 
+If New Route is selected then deselect the Existing Route option. 
 
 Updating Delivery Area Definition From Shipment Mgt. Entries That are Out of Delivery Order
 -------------------------------------------------------------------------------------------
@@ -457,7 +626,7 @@ There might be a reason to visit certain addresses out of the usual delivery
 order e.g. if a customer insists that they must be the first delivery of the
 day.
 
-Add an action to the Shipment Management page,Â Save Delivery Order. This action
+Add an action to the Shipment Management page, Save Delivery Order. This action
 will open a new page with the following controls:
 
 Delivery Area Code (non-editable)
@@ -578,9 +747,9 @@ SPM1.0.0.4
 [Bug Fix]Shipment Management Factbox - Statistics
 -------------------------------------------------
 
-TAB52102441 -Â Shipment Management Group
+TAB52102441 - Shipment Management Group
 
-ExitÂ GetVolume, GetNetWeight & GetGrossWeight if the entry no is 0, else exit
+Exit GetVolume, GetNetWeight & GetGrossWeight if the entry no is 0, else exit
 with tallied total.
 
 SPM1.0.0.3
@@ -591,7 +760,7 @@ SPM1.0.0.3
 
 Sales Header does not exist error after posting.
 
-Put a IF around SalesHeader.GETÂ onÂ "Shipment Management Buffer".GetStatus
+Put a IF around SalesHeader.GET on "Shipment Management Buffer".GetStatus
 
 SPM1.0.0.2
 ==========
@@ -601,7 +770,7 @@ SPM1.0.0.2
 
 110 (Sales Shipment Header)
 
-111Â (Sales Shipment Line)
+111 (Sales Shipment Line)
 
 112 (Sales Invoice Header),
 
@@ -609,7 +778,7 @@ SPM1.0.0.2
 
 114 (Sales Cr.Memo Header)
 
-115 (Sales Cr.MemoÂ Line)
+115 (Sales Cr.Memo Line)
 
 6660 (Return Receipt Header)
 
