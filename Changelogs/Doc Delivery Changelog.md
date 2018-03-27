@@ -1,3 +1,51 @@
+﻿
+DD2.9
+=========
+
+Interoperability with Document Links
+------------------------------------
+
+<font size=3>Support for:</font><div><ul><li><span style="font-size:medium;">Determining that Document Links is available in the database</span></li><li><span style="font-size:medium;">Providing setup options for using DL as the storage mechanism (in place of the DD Document Store table)</span></li><li><span style="font-size:medium;">Calling new DL functionality to store attachments that have been generated against the source record (this will mean they are visible in the DL factbox against the source record)</span></li><li><span style="font-size:medium;">Calling new DL functionality to retrieve the attachment when it is required,</span></li></ul></div>
+
+DD2.8.1
+=========
+
+Doc Per Record Selection When Grouping by Field
+------------------------------------
+
+On the Document Type Selection page the user has the option to choose between &quot;One document per record&quot; and &quot;One document for all records&quot;. This option isn't relevant if the document type already specifies grouping by one of the primary table fields.<div><br></div><div>If when the page opens a document type which groups by a field is already selected the above option is still enabled. This is wrong.</div>
+
+DD2.7.9
+=========
+
+Remove Obsolete Fields
+------------------------------------
+
+Remove obsolete fields from DD tables.
+
+Make available on issued finance charge memos
+------------------------------------
+
+<div class=ExternalClassFCE3EFD2F4894CA3A6884E1F60C03C9D><p><span id=ms-rterangecursor-start></span>Add emailing options on page - Issued Fin. Charge Memo List (452)</p><p>This will be require for the BMA?<span id=ms-rterangecursor-end></span></p></div>
+
+Remove ADC Subscription
+------------------------------------
+
+The subscription to the ADC event means that DD must be installed the same way as ADC (either as objects or extension). Reworking this dependency to be more loosely coupled would give us more flexibility when installing.
+
+DD Custom Values Table 
+------------------------------------
+
+When trying to add table 52102244 to Linked Tables page I get an error saying &quot;there is no Object within that filter&quot;. This is when modifying DD as an Extension. We need to lookup to All Object table not just Object table.
+
+DD2.7.8.3
+=========
+
+Document Type Parameters reset
+------------------------------------
+
+When submitting a record via the Document Delivery Mgt codeunit, the DeleteSessionRecords function reset the filter applied. All document types are returned instead of the one filtered and passed through.&nbsp;
+
 DD2.7.8.1
 =========
 
