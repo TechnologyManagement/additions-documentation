@@ -26,7 +26,7 @@ Remove obsolete fields from DD tables.
 Make available on issued finance charge memos
 ------------------------------------
 
-<div class=ExternalClassFCE3EFD2F4894CA3A6884E1F60C03C9D><p><span id=ms-rterangecursor-start></span>Add emailing options on page - Issued Fin. Charge Memo List (452)</p><p>This will be require for the BMA?<span id=ms-rterangecursor-end></span></p></div>
+<div class=ExternalClassFCE3EFD2F4894CA3A6884E1F60C03C9D><p><span id=ms-rterangecursor-start></span>Add emailing options on page - Issued Fin. Charge Memo List (452)</p></div>
 
 Remove ADC Subscription
 ------------------------------------
