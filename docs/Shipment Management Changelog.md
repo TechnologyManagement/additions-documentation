@@ -1,17 +1,3 @@
-
-# SPM1.1.3.3
-## A new goup is created when one already exists
-<ul style="margin-top:0cm;">
- <li style="margin:0px 0px 0px -24px;color:rgb(0, 0, 0);font-family:&quot;Calibri&quot;,sans-serif;font-size:11pt;font-style:normal;font-weight:normal;"><span style="margin:0px;">Create a SO with no Requested Delivery Date – Grp No. = 59 and
-     Shipment Date = 2<sup>nd</sup> Mar </span></li>
- <li style="margin:0px 0px 0px -24px;color:rgb(0, 0, 0);font-family:&quot;Calibri&quot;,sans-serif;font-size:11pt;font-style:normal;font-weight:normal;"><span style="margin:0px;">Create a SO and add a Requested Delivery Date of 2<sup>nd</sup> Mar
-     <u>BEFORE</u> the lines – Grp No. = 59 and Shipment Date = 2<sup>nd</sup>
-     Mar</span></li>
- <li style="margin:0px 0px 0px -24px;color:rgb(0, 0, 0);font-family:&quot;Calibri&quot;,sans-serif;font-size:11pt;font-style:normal;font-weight:normal;"><span style="margin:0px;">Create a SO and add a Requested Delivery Date of 2<sup>nd</sup> Mar
-     <u>AFTER</u> the lines Mar – Grp No. = 60 and Shipment Date = 2<sup>nd</sup>
-     Mar</span></li>
-</ul>
-
 ## Respect customised calendar changes
 The calendar changes to the location are not respected
 
