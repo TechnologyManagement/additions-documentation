@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Extensions - Clever Dynamics</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Extensions";
+    var mkdocs_page_input_path = "Extensions.md";
+    var mkdocs_page_url = "/Extensions/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Clever Dynamics</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Additions Documentation</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Extensions</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#extensions">Extensions</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#why-extensions">Why Extensions?</a></li>
+        
+            <li><a class="toctree-l3" href="#how-do-extensions-work">How do Extensions Work?</a></li>
+        
+            <li><a class="toctree-l3" href="#overview">Overview</a></li>
+        
+            <li><a class="toctree-l3" href="#powershell">PowerShell</a></li>
+        
+            <li><a class="toctree-l3" href="#extension-management">Extension Management</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Payment Gateway</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../Payment%20Gateway/Home/">Home</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Payment%20Gateway/Setup/">Setup</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../Payment%20Gateway/Using-Payment-Gateway/">Using Payment Gateway</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Clever Dynamics</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Extensions</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="extensions">Extensions</h1>
+<p>We provide our Additions functionality where possible as a Dynamics NAV
+extension (.navx) file. But <a href="#why-extensions">why</a> not just provide objects?
+<a href="#how-do-extensions-work">How do extensions work</a>?</p>
+<h2 id="why-extensions">Why Extensions?</h2>
+<p>Extensions are a way of packaging NAV functionality that was introduced in NAV
+2016. The major benefit is that they allow some functionality to be applied to a
+target database without impacting any existing development.</p>
+<h3 id="no-merging">No Merging</h3>
+<p>With traditional object deployment, any changes to standard NAV objects must be
+merged – either using PowerShell cmdlets or working with text files of objects
+manually.</p>
+<p>With extensions, you take the .navx file that we supply, use PowerShell to
+publish and install the extension into the database and leave NAV to worry about
+merging the functionality of each object.</p>
+<h3 id="uninstalling">Uninstalling</h3>
+<p>When some functionality is installed as an extension, removing that
+functionality is as easy as installing it. Removing code and table fields in
+your customer’s database is not without risk. If you need to remove the
+extension just run the Uninstall-NavApp cmdlet – the data will be safely
+archived and the functionality removed from the database.</p>
+<h2 id="how-do-extensions-work">How do Extensions Work?</h2>
+<h2 id="overview">Overview</h2>
+<p>There is thorough documentation on how extensions work and how to deploy them on
+MSDN: <a href="https://msdn.microsoft.com/en-us/library/mt574417%28v=nav.90%29.aspx">https://msdn.microsoft.com/en-us/library/mt574417%28v=nav.90%29.aspx</a></p>
+<p>The process to apply an extension to a database is simple:</p>
+<ol>
+<li>
+<p>Copy the navx file to the NAV service tier machine</p>
+</li>
+<li>
+<p>Open a PowerShell ISE session as administrator</p>
+</li>
+<li>
+<p>Import the NAV PowerShell modules</p>
+</li>
+<li>
+<p>Publish the extension to a service tier connected to the target database</p>
+</li>
+<li>
+<p>Install the extension to the target service tier/tenant</p>
+</li>
+<li>
+<p>Synchronise the target tenant(s)</p>
+</li>
+<li>
+<p>Restart any client sessions that were logged in prior to the installation to
+    see menu changes</p>
+</li>
+</ol>
+<h2 id="powershell">PowerShell</h2>
+<p>Open PowerShell ISE as administrator to start a new session. This session will
+allow us to import NAV modules and execute commands against the service tier to
+publish and install the extensions.</p>
+<h3 id="modules">Modules</h3>
+<p>NAV includes several PowerShell modules which allow you to work with the service
+tier, objects and extensions. Import these modules with the <em>Import-Module</em>
+command in PowerShell ISE as follows. Note: these are the default installation
+paths for NAV 2017, change as appropriate to your installation.</p>
+<p>Import-Module "C:\Program Files\Microsoft Dynamics
+NAV\100\Service\Microsoft.Dynamics.Nav.Apps.Management.psd1"<br />
+Import-Module "C:\Program Files\Microsoft Dynamics
+NAV\100\Service\Microsoft.Dynamics.Nav.Management.psm1"</p>
+<h3 id="navapp-cmdlets">NavApp Cmdlets</h3>
+<p>The Apps.Management module imported above contains the cmdlets necessary for
+working with extensions.</p>
+<h4 id="publishing-extensions">Publishing Extensions</h4>
+<p>The first step in applying an extension to a database is to ‘publish’ it. This
+process verifies that there is no development in the extension that is
+incompatible with the target database and makes the functionality available to
+install in the target database.</p>
+<p>The cmdlet to use is <em>Publish-NavApp</em>, as follows:</p>
+<p>Publish-NavApp DynamicsNAV100 -Path “C:\Extensions\Promotions.navx”</p>
+<p>Replace ‘DynamicsNAV100’ with the name of the server instance you are targeting
+and the file path with the location of the navx file.</p>
+<h4 id="installing-extensions">Installing Extensions</h4>
+<p>Once an extension has been published to a database it is available to install
+into one or more of the tenants served by that database. The cmdletto use is
+<em>Install-NavApp,</em> as follows:</p>
+<p>Install-NavApp DynamicsNAV100 -Name ‘Promotions’ -Tenant ‘TenantA’</p>
+<p>Replace ‘DynamicsNAV100’ with the name of the server instance you are targeting,
+‘Promotions’ with the name of the extension and ‘TenantA’ with the name of the
+tenant you wish to install the extension into. If your database contains only a
+single tenant the -Tenant switch can be omitted.</p>
+<p>You can use the <em>Get-NavAppInfo</em> cmdlet to view details, including the name,
+version and publisher of extensions that are published into the database.</p>
+<h4 id="synchronising-the-tenant">Synchronising the Tenant</h4>
+<p>Having published and installed the extension it is good practice to check that
+the metadata of the tenant is in sync with the SQL database. Use the
+<em>Sync-NavTenant</em> cmdlet:</p>
+<p>Sync-NAVTenant DynamicsNAV100 -Tenant ‘TenantA’</p>
+<p>Again, replace DynamicsNAV100 with the name of the server instance you are
+targeting and ‘TenantA’ with the name of the tenant. The -Tenant switch can be
+omitted if the database contains only a single tenant.</p>
+<h4 id="removing-extensions">Removing Extensions</h4>
+<p>Extensions can easily be removed from a database by reversing the installation
+process.</p>
+<p>Uninstall-NavApp DynamicsNAV100 -Name ‘Promotions’<br />
+Unpublish-NavApp DynamicsNAV100 -Name ‘Promotions’</p>
+<p>Replace ‘DynamicsNAV100’ and ‘Promotions’ as appropriate. <a href="#synchronising-the-tenant">Synchronise the
+tenant</a> afterwards.</p>
+<h2 id="extension-management">Extension Management</h2>
+<p>Extensions can also be managed through the NAV client. Open the “Extension
+Management” page to view available extensions, install and uninstall them. Note
+that only published extensions are visible in this page. <a href="#publishing-extensions">PowerShell must be
+used to publish an extension</a> before the Extension
+Management page can be used to install it.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Payment%20Gateway/Home/" class="btn btn-neutral float-right" title="Home">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Additions Documentation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Payment%20Gateway/Home/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>

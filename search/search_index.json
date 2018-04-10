@@ -1,0 +1,149 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Additions Documentation\n\n\nThis is the documentation for Dynamics Additions range of products from Technology Management Ltd.",
+            "title": "Additions Documentation"
+        },
+        {
+            "location": "/#additions-documentation",
+            "text": "This is the documentation for Dynamics Additions range of products from Technology Management Ltd.",
+            "title": "Additions Documentation"
+        },
+        {
+            "location": "/Extensions/",
+            "text": "Extensions\n\n\nWe provide our Additions functionality where possible as a Dynamics NAV\nextension (.navx) file. But \nwhy\n not just provide objects?\n\nHow do extensions work\n?\n\n\nWhy Extensions?\n\n\nExtensions are a way of packaging NAV functionality that was introduced in NAV\n2016. The major benefit is that they allow some functionality to be applied to a\ntarget database without impacting any existing development.\n\n\nNo Merging\n\n\nWith traditional object deployment, any changes to standard NAV objects must be\nmerged \u2013 either using PowerShell cmdlets or working with text files of objects\nmanually.\n\n\nWith extensions, you take the .navx file that we supply, use PowerShell to\npublish and install the extension into the database and leave NAV to worry about\nmerging the functionality of each object.\n\n\nUninstalling\n\n\nWhen some functionality is installed as an extension, removing that\nfunctionality is as easy as installing it. Removing code and table fields in\nyour customer\u2019s database is not without risk. If you need to remove the\nextension just run the Uninstall-NavApp cmdlet \u2013 the data will be safely\narchived and the functionality removed from the database.\n\n\nHow do Extensions Work?\n\n\nOverview\n\n\nThere is thorough documentation on how extensions work and how to deploy them on\nMSDN: \nhttps://msdn.microsoft.com/en-us/library/mt574417%28v=nav.90%29.aspx\n\n\nThe process to apply an extension to a database is simple:\n\n\n\n\n\n\nCopy the navx file to the NAV service tier machine\n\n\n\n\n\n\nOpen a PowerShell ISE session as administrator\n\n\n\n\n\n\nImport the NAV PowerShell modules\n\n\n\n\n\n\nPublish the extension to a service tier connected to the target database\n\n\n\n\n\n\nInstall the extension to the target service tier/tenant\n\n\n\n\n\n\nSynchronise the target tenant(s)\n\n\n\n\n\n\nRestart any client sessions that were logged in prior to the installation to\n    see menu changes\n\n\n\n\n\n\nPowerShell\n\n\nOpen PowerShell ISE as administrator to start a new session. This session will\nallow us to import NAV modules and execute commands against the service tier to\npublish and install the extensions.\n\n\nModules\n\n\nNAV includes several PowerShell modules which allow you to work with the service\ntier, objects and extensions. Import these modules with the \nImport-Module\n\ncommand in PowerShell ISE as follows. Note: these are the default installation\npaths for NAV 2017, change as appropriate to your installation.\n\n\nImport-Module \"C:\\Program Files\\Microsoft Dynamics\nNAV\\100\\Service\\Microsoft.Dynamics.Nav.Apps.Management.psd1\"\n\nImport-Module \"C:\\Program Files\\Microsoft Dynamics\nNAV\\100\\Service\\Microsoft.Dynamics.Nav.Management.psm1\"\n\n\nNavApp Cmdlets\n\n\nThe Apps.Management module imported above contains the cmdlets necessary for\nworking with extensions.\n\n\nPublishing Extensions\n\n\nThe first step in applying an extension to a database is to \u2018publish\u2019 it. This\nprocess verifies that there is no development in the extension that is\nincompatible with the target database and makes the functionality available to\ninstall in the target database.\n\n\nThe cmdlet to use is \nPublish-NavApp\n, as follows:\n\n\nPublish-NavApp DynamicsNAV100 -Path \u201cC:\\Extensions\\Promotions.navx\u201d\n\n\nReplace \u2018DynamicsNAV100\u2019 with the name of the server instance you are targeting\nand the file path with the location of the navx file.\n\n\nInstalling Extensions\n\n\nOnce an extension has been published to a database it is available to install\ninto one or more of the tenants served by that database. The cmdletto use is\n\nInstall-NavApp,\n as follows:\n\n\nInstall-NavApp DynamicsNAV100 -Name \u2018Promotions\u2019 -Tenant \u2018TenantA\u2019\n\n\nReplace \u2018DynamicsNAV100\u2019 with the name of the server instance you are targeting,\n\u2018Promotions\u2019 with the name of the extension and \u2018TenantA\u2019 with the name of the\ntenant you wish to install the extension into. If your database contains only a\nsingle tenant the -Tenant switch can be omitted.\n\n\nYou can use the \nGet-NavAppInfo\n cmdlet to view details, including the name,\nversion and publisher of extensions that are published into the database.\n\n\nSynchronising the Tenant\n\n\nHaving published and installed the extension it is good practice to check that\nthe metadata of the tenant is in sync with the SQL database. Use the\n\nSync-NavTenant\n cmdlet:\n\n\nSync-NAVTenant DynamicsNAV100 -Tenant \u2018TenantA\u2019\n\n\nAgain, replace DynamicsNAV100 with the name of the server instance you are\ntargeting and \u2018TenantA\u2019 with the name of the tenant. The -Tenant switch can be\nomitted if the database contains only a single tenant.\n\n\nRemoving Extensions\n\n\nExtensions can easily be removed from a database by reversing the installation\nprocess.\n\n\nUninstall-NavApp DynamicsNAV100 -Name \u2018Promotions\u2019\n\nUnpublish-NavApp DynamicsNAV100 -Name \u2018Promotions\u2019\n\n\nReplace \u2018DynamicsNAV100\u2019 and \u2018Promotions\u2019 as appropriate. \nSynchronise the\ntenant\n afterwards.\n\n\nExtension Management\n\n\nExtensions can also be managed through the NAV client. Open the \u201cExtension\nManagement\u201d page to view available extensions, install and uninstall them. Note\nthat only published extensions are visible in this page. \nPowerShell must be\nused to publish an extension\n before the Extension\nManagement page can be used to install it.",
+            "title": "Extensions"
+        },
+        {
+            "location": "/Extensions/#extensions",
+            "text": "We provide our Additions functionality where possible as a Dynamics NAV\nextension (.navx) file. But  why  not just provide objects? How do extensions work ?",
+            "title": "Extensions"
+        },
+        {
+            "location": "/Extensions/#why-extensions",
+            "text": "Extensions are a way of packaging NAV functionality that was introduced in NAV\n2016. The major benefit is that they allow some functionality to be applied to a\ntarget database without impacting any existing development.",
+            "title": "Why Extensions?"
+        },
+        {
+            "location": "/Extensions/#no-merging",
+            "text": "With traditional object deployment, any changes to standard NAV objects must be\nmerged \u2013 either using PowerShell cmdlets or working with text files of objects\nmanually.  With extensions, you take the .navx file that we supply, use PowerShell to\npublish and install the extension into the database and leave NAV to worry about\nmerging the functionality of each object.",
+            "title": "No Merging"
+        },
+        {
+            "location": "/Extensions/#uninstalling",
+            "text": "When some functionality is installed as an extension, removing that\nfunctionality is as easy as installing it. Removing code and table fields in\nyour customer\u2019s database is not without risk. If you need to remove the\nextension just run the Uninstall-NavApp cmdlet \u2013 the data will be safely\narchived and the functionality removed from the database.",
+            "title": "Uninstalling"
+        },
+        {
+            "location": "/Extensions/#how-do-extensions-work",
+            "text": "",
+            "title": "How do Extensions Work?"
+        },
+        {
+            "location": "/Extensions/#overview",
+            "text": "There is thorough documentation on how extensions work and how to deploy them on\nMSDN:  https://msdn.microsoft.com/en-us/library/mt574417%28v=nav.90%29.aspx  The process to apply an extension to a database is simple:    Copy the navx file to the NAV service tier machine    Open a PowerShell ISE session as administrator    Import the NAV PowerShell modules    Publish the extension to a service tier connected to the target database    Install the extension to the target service tier/tenant    Synchronise the target tenant(s)    Restart any client sessions that were logged in prior to the installation to\n    see menu changes",
+            "title": "Overview"
+        },
+        {
+            "location": "/Extensions/#powershell",
+            "text": "Open PowerShell ISE as administrator to start a new session. This session will\nallow us to import NAV modules and execute commands against the service tier to\npublish and install the extensions.",
+            "title": "PowerShell"
+        },
+        {
+            "location": "/Extensions/#modules",
+            "text": "NAV includes several PowerShell modules which allow you to work with the service\ntier, objects and extensions. Import these modules with the  Import-Module \ncommand in PowerShell ISE as follows. Note: these are the default installation\npaths for NAV 2017, change as appropriate to your installation.  Import-Module \"C:\\Program Files\\Microsoft Dynamics\nNAV\\100\\Service\\Microsoft.Dynamics.Nav.Apps.Management.psd1\" \nImport-Module \"C:\\Program Files\\Microsoft Dynamics\nNAV\\100\\Service\\Microsoft.Dynamics.Nav.Management.psm1\"",
+            "title": "Modules"
+        },
+        {
+            "location": "/Extensions/#navapp-cmdlets",
+            "text": "The Apps.Management module imported above contains the cmdlets necessary for\nworking with extensions.",
+            "title": "NavApp Cmdlets"
+        },
+        {
+            "location": "/Extensions/#publishing-extensions",
+            "text": "The first step in applying an extension to a database is to \u2018publish\u2019 it. This\nprocess verifies that there is no development in the extension that is\nincompatible with the target database and makes the functionality available to\ninstall in the target database.  The cmdlet to use is  Publish-NavApp , as follows:  Publish-NavApp DynamicsNAV100 -Path \u201cC:\\Extensions\\Promotions.navx\u201d  Replace \u2018DynamicsNAV100\u2019 with the name of the server instance you are targeting\nand the file path with the location of the navx file.",
+            "title": "Publishing Extensions"
+        },
+        {
+            "location": "/Extensions/#installing-extensions",
+            "text": "Once an extension has been published to a database it is available to install\ninto one or more of the tenants served by that database. The cmdletto use is Install-NavApp,  as follows:  Install-NavApp DynamicsNAV100 -Name \u2018Promotions\u2019 -Tenant \u2018TenantA\u2019  Replace \u2018DynamicsNAV100\u2019 with the name of the server instance you are targeting,\n\u2018Promotions\u2019 with the name of the extension and \u2018TenantA\u2019 with the name of the\ntenant you wish to install the extension into. If your database contains only a\nsingle tenant the -Tenant switch can be omitted.  You can use the  Get-NavAppInfo  cmdlet to view details, including the name,\nversion and publisher of extensions that are published into the database.",
+            "title": "Installing Extensions"
+        },
+        {
+            "location": "/Extensions/#synchronising-the-tenant",
+            "text": "Having published and installed the extension it is good practice to check that\nthe metadata of the tenant is in sync with the SQL database. Use the Sync-NavTenant  cmdlet:  Sync-NAVTenant DynamicsNAV100 -Tenant \u2018TenantA\u2019  Again, replace DynamicsNAV100 with the name of the server instance you are\ntargeting and \u2018TenantA\u2019 with the name of the tenant. The -Tenant switch can be\nomitted if the database contains only a single tenant.",
+            "title": "Synchronising the Tenant"
+        },
+        {
+            "location": "/Extensions/#removing-extensions",
+            "text": "Extensions can easily be removed from a database by reversing the installation\nprocess.  Uninstall-NavApp DynamicsNAV100 -Name \u2018Promotions\u2019 \nUnpublish-NavApp DynamicsNAV100 -Name \u2018Promotions\u2019  Replace \u2018DynamicsNAV100\u2019 and \u2018Promotions\u2019 as appropriate.  Synchronise the\ntenant  afterwards.",
+            "title": "Removing Extensions"
+        },
+        {
+            "location": "/Extensions/#extension-management",
+            "text": "Extensions can also be managed through the NAV client. Open the \u201cExtension\nManagement\u201d page to view available extensions, install and uninstall them. Note\nthat only published extensions are visible in this page.  PowerShell must be\nused to publish an extension  before the Extension\nManagement page can be used to install it.",
+            "title": "Extension Management"
+        },
+        {
+            "location": "/Payment Gateway/Home/",
+            "text": "Payment Gateway from Technology Management is used to take online card payments\nthrough Payment Providers such as SagePay, WorldPay and WorldPay Hosted. The\nadvantage is that payments are taken through the provider and no card details\nare taken within Dynamics NAV. These payments can then be automatically matched\nup with and applied in Dynamics NAV against the Posted Invoice(s) that were\ngenerated from the Sales Order.\n\n\n\n\n\n\nSetup Payment Gateway\n\n\n\n\n\n\nUsing Payment Gateway",
+            "title": "Home"
+        },
+        {
+            "location": "/Payment Gateway/Setup/",
+            "text": "In NAV, go to \nDepartments > Administration > Application Setup > Financial\nManagement > Payment Gateway\n and select \nPayment Gateway Setup.\n\n\nThis page defines how NAV connects to the Payment Gateway service from\nTechnology Management.\n\n\nFrom the \nPayment Gateway Setup\n Screen, go to the Actions tab in the Ribbon\nand select \nGet Default Configuration\n.\n\n\n\n\nSelecting this will complete all the details for the Web Service apart from the\npassword.\n\n\n\n\nWhen purchasing this Addition from Technology Management you will be allocated a\nTenant Code and Access Key, these are your unique identifiers. The combination\nof these two ensures a payment can only be taken for the set specific company, a\npayment cannot be taken on behalf of a different company.\n\n\nIn NAV, go to \nDepartments > Administration > Application Setup > Financial\nManagement > Payment Gateway.\n Under the list option there are three\ncategories, Payment Providers, Payment Provider Account and Payment Provider\nAcc. Priority.\n\n\nPayment Provider\n\n\nIf \nPayment Provider\n is selected the default payment providers will be\npresented. Highlighting the relevant payment provider select \nAccounts\n in the\nHome tab on the Ribbon.\n\n\n\n\nThis presents the Payment Provider account for that provider.\n\n\n\n\nThese accounts need to be setup and with all the information populated. To do\nthis, select new in the top left-hand corner.\n\n\n\n\nAll the fields need to be populated correct and account specifically for the set\nup to work as it should. Each customer will have their own account details which\ncan be filled in here.\n\n\nOnce completed select ok. The account will now be set up.\n\n\nPayment Provider Account\n\n\nIf Payment Provider Account is selected, this shows all the accounts that have\nbeen set up for each account type, such as Sage Pay, WorldPay etc. New accounts\ncan also be created in the section; however, users will need to select the\ncorrect \nPayment Provider Code\n as this will not be automatically populated.\nThese accounts can be created in the same way as previously stated, and the\ncorrect information will need to be populated.\n\n\n\n\nPayment Provider Acc. Priority\n\n\n\n\nIf Payment Provider Acc. Priority is selected, user can set up which account\nwill be associated with which document type. For example, when a sales order is\nrequesting payment, it will automatically select to use a WorldPay account. This\nwill then be set as the default payment account but can be changed if needed.\n\n\n\n\nTo set these up, select New in the top left-hand corner and a filter page will\npop up.\n\n\nUser will need to enter the table number, criteria, payment provider and\ndescription.\n\n\n\n\nTo select the criteria, a drill down option will be presented in the corner (3\ndots). Clicking on this will give the user filters to use to create their\ncriteria.\n\n\nThese filters can be used to select whatever is required by the user.\n\n\nCustomer Card (optional)\n\n\n\n\nA Payment Method Code can be set on the Customer Card for each customer, this\ncan be set to default to Sage (or another Payment Provider such as WorldPay).\nThis will be pulled though on sales documents as the default payment method but\ncan easily be changed on the document. Or it can be left blank and selected for\neach order.\n\n\nNote: if this option has been used Payment Gateway V1, then it will be pulled\nthrough as a new Account in V2.",
+            "title": "Setup"
+        },
+        {
+            "location": "/Payment Gateway/Setup/#payment-provider",
+            "text": "If  Payment Provider  is selected the default payment providers will be\npresented. Highlighting the relevant payment provider select  Accounts  in the\nHome tab on the Ribbon.   This presents the Payment Provider account for that provider.   These accounts need to be setup and with all the information populated. To do\nthis, select new in the top left-hand corner.   All the fields need to be populated correct and account specifically for the set\nup to work as it should. Each customer will have their own account details which\ncan be filled in here.  Once completed select ok. The account will now be set up.",
+            "title": "Payment Provider"
+        },
+        {
+            "location": "/Payment Gateway/Setup/#payment-provider-account",
+            "text": "If Payment Provider Account is selected, this shows all the accounts that have\nbeen set up for each account type, such as Sage Pay, WorldPay etc. New accounts\ncan also be created in the section; however, users will need to select the\ncorrect  Payment Provider Code  as this will not be automatically populated.\nThese accounts can be created in the same way as previously stated, and the\ncorrect information will need to be populated.",
+            "title": "Payment Provider Account"
+        },
+        {
+            "location": "/Payment Gateway/Setup/#payment-provider-acc-priority",
+            "text": "If Payment Provider Acc. Priority is selected, user can set up which account\nwill be associated with which document type. For example, when a sales order is\nrequesting payment, it will automatically select to use a WorldPay account. This\nwill then be set as the default payment account but can be changed if needed.   To set these up, select New in the top left-hand corner and a filter page will\npop up.  User will need to enter the table number, criteria, payment provider and\ndescription.   To select the criteria, a drill down option will be presented in the corner (3\ndots). Clicking on this will give the user filters to use to create their\ncriteria.  These filters can be used to select whatever is required by the user.",
+            "title": "Payment Provider Acc. Priority"
+        },
+        {
+            "location": "/Payment Gateway/Setup/#customer-card-optional",
+            "text": "A Payment Method Code can be set on the Customer Card for each customer, this\ncan be set to default to Sage (or another Payment Provider such as WorldPay).\nThis will be pulled though on sales documents as the default payment method but\ncan easily be changed on the document. Or it can be left blank and selected for\neach order.  Note: if this option has been used Payment Gateway V1, then it will be pulled\nthrough as a new Account in V2.",
+            "title": "Customer Card (optional)"
+        },
+        {
+            "location": "/Payment Gateway/Using-Payment-Gateway/",
+            "text": "Creating a Sales Order\n\n\nOn the Sales Order, sales lines are entered as normal.\n\n\n\n\nA Payment Method Code will be pulled through from the Customer Card if one has\nbeen set, otherwise it can be left blank. The Payment Gateway Amount field will\nbe empty initially but will be completed after payment has been taken, showing\nthe amount received through the Payment Gateway.\n\n\nTaking a Payment\n\n\nOnce a sales order has been completed, before being released go to the Action\nTab in the Ribbon and Select Payment Gateway.\n\n\n\n\nA dialogue box is triggered within NAV to confirm the billing and delivery\naddresses, the currency used and the amounts before redirecting to the Payment\nProvider. Ensure that the \nAccount Code\n is populated, if not, one needs to be\nselected now. If one isn\u2019t selected, \nPayment Gateway\n will promote the use to\nenter one before continuing.\n\n\n\n\nNote: This box is only triggered if \u2018Show Payment Page\u2019 has been setup on the\nPayment Provider Account, or if there is no Payment Provider Acc. Priority set\nfor this document filter.\n\n\n\n\nWhen OK is pressed these details are sent over to the Payment provider, who\nsends back a pop-up page in a new window to take the payment. This window is\nstill in NAV, it does not use a web-browser.\n\n\nEnter the card number details, confirm/change the billing address details if\nthese are not the correct ones for the credit/debit card being used then click\nthe \u2018Pay\u2019 button.\n\n\nIf successful, a message will be received.\n\n\n\n\nBack in the sales order, refresh the sales order (F5) it will now display an\namount in Payment Gateway Amount and the Sales Order can be released and then\nposted.\n\n\nPayment Gateway Log\n\n\nIn NAV, go to \nDepartments > Financial Management > Receivables > History >\nPayment Gateway Log,\n this is used to check the details of the\npayment/transactions.\n\n\nThis shows the details of the payment(s) taken, their outcome (Payment Status),\nthe Payment Amount received.\n\n\nAll transaction have a unique Transaction ID which are used to identify the\ntransaction\n\n\n\n\n.\n\n\nAt this point it is a record of a payment into the system but is not yet applied\nagainst any specific invoice (Cust. Ledg. Entry No.), it has not yet been posted\nas cash. If the payment failed there will be an explanation in the Status\nDetails Column.\n\n\nPosting the payment\n\n\nIn NAV, go to \nHome > Cash Receipt Journal\n and select the cash receipts\njournal that is required.\n\n\nNavigate to the Action Tab in the Ribbon once the payment journal has been\nopened and select \u2018\nSuggest Paym. Gateway Payment\u2019\n. This allows filtering to\nbe the entries for what day/week or a customer order.\n\n\n\n\n\n\nThis is now applied to the Posted Invoice in NAV. The tick in Applied Yes/No\nmeans the payment has been successfully matched to one or more invoices. To see\nwhat it has been applied against, go to the Home Tab on the Ribbon, and choose\nApply Entries.\n\n\nWhen the system inserts the Journal line it will attempt to find one or more\ninvoices that have been posted from the Order against which the payment was\noriginally taken. This could be multiple invoices. It will match them up and set\nthe Applies to ID for them, ready for posting.\n\n\nIf the system does not find invoices to match against, these can be set manually\nusing the \u201cSet Applies to ID\u201d option, in the Applied Customer Entries. This\nbutton can be found on the Action tab in the Ribbon.\n\n\nOnce the journals have been posted, a success message will appear.\n\n\n\n\nReviewing the Posted Entries Relating to the Payment\n\n\nIn NAV, go to \nPosted Documents > Posted Sales Invoices.\n Select the invoice\nthat has just been posted and navigate to the Action Tab in the Ribbon. There is\nan icon to get a filtered view of the \nPayment Gateway Log.\n\n\n\n\n\n\n\n\nThe Payment Gateway Log confirms the payment was taken against Sales Order and\nthat is has a Customer Ledger Entry No. Selecting Cust. Ledger Entry opens the\nLedger Entry.",
+            "title": "Using Payment Gateway"
+        },
+        {
+            "location": "/Payment Gateway/Using-Payment-Gateway/#creating-a-sales-order",
+            "text": "On the Sales Order, sales lines are entered as normal.   A Payment Method Code will be pulled through from the Customer Card if one has\nbeen set, otherwise it can be left blank. The Payment Gateway Amount field will\nbe empty initially but will be completed after payment has been taken, showing\nthe amount received through the Payment Gateway.",
+            "title": "Creating a Sales Order"
+        },
+        {
+            "location": "/Payment Gateway/Using-Payment-Gateway/#taking-a-payment",
+            "text": "Once a sales order has been completed, before being released go to the Action\nTab in the Ribbon and Select Payment Gateway.   A dialogue box is triggered within NAV to confirm the billing and delivery\naddresses, the currency used and the amounts before redirecting to the Payment\nProvider. Ensure that the  Account Code  is populated, if not, one needs to be\nselected now. If one isn\u2019t selected,  Payment Gateway  will promote the use to\nenter one before continuing.   Note: This box is only triggered if \u2018Show Payment Page\u2019 has been setup on the\nPayment Provider Account, or if there is no Payment Provider Acc. Priority set\nfor this document filter.   When OK is pressed these details are sent over to the Payment provider, who\nsends back a pop-up page in a new window to take the payment. This window is\nstill in NAV, it does not use a web-browser.  Enter the card number details, confirm/change the billing address details if\nthese are not the correct ones for the credit/debit card being used then click\nthe \u2018Pay\u2019 button.  If successful, a message will be received.   Back in the sales order, refresh the sales order (F5) it will now display an\namount in Payment Gateway Amount and the Sales Order can be released and then\nposted.",
+            "title": "Taking a Payment"
+        },
+        {
+            "location": "/Payment Gateway/Using-Payment-Gateway/#payment-gateway-log",
+            "text": "In NAV, go to  Departments > Financial Management > Receivables > History >\nPayment Gateway Log,  this is used to check the details of the\npayment/transactions.  This shows the details of the payment(s) taken, their outcome (Payment Status),\nthe Payment Amount received.  All transaction have a unique Transaction ID which are used to identify the\ntransaction   .  At this point it is a record of a payment into the system but is not yet applied\nagainst any specific invoice (Cust. Ledg. Entry No.), it has not yet been posted\nas cash. If the payment failed there will be an explanation in the Status\nDetails Column.",
+            "title": "Payment Gateway Log"
+        },
+        {
+            "location": "/Payment Gateway/Using-Payment-Gateway/#posting-the-payment",
+            "text": "In NAV, go to  Home > Cash Receipt Journal  and select the cash receipts\njournal that is required.  Navigate to the Action Tab in the Ribbon once the payment journal has been\nopened and select \u2018 Suggest Paym. Gateway Payment\u2019 . This allows filtering to\nbe the entries for what day/week or a customer order.    This is now applied to the Posted Invoice in NAV. The tick in Applied Yes/No\nmeans the payment has been successfully matched to one or more invoices. To see\nwhat it has been applied against, go to the Home Tab on the Ribbon, and choose\nApply Entries.  When the system inserts the Journal line it will attempt to find one or more\ninvoices that have been posted from the Order against which the payment was\noriginally taken. This could be multiple invoices. It will match them up and set\nthe Applies to ID for them, ready for posting.  If the system does not find invoices to match against, these can be set manually\nusing the \u201cSet Applies to ID\u201d option, in the Applied Customer Entries. This\nbutton can be found on the Action tab in the Ribbon.  Once the journals have been posted, a success message will appear.",
+            "title": "Posting the payment"
+        },
+        {
+            "location": "/Payment Gateway/Using-Payment-Gateway/#reviewing-the-posted-entries-relating-to-the-payment",
+            "text": "In NAV, go to  Posted Documents > Posted Sales Invoices.  Select the invoice\nthat has just been posted and navigate to the Action Tab in the Ribbon. There is\nan icon to get a filtered view of the  Payment Gateway Log.     The Payment Gateway Log confirms the payment was taken against Sales Order and\nthat is has a Customer Ledger Entry No. Selecting Cust. Ledger Entry opens the\nLedger Entry.",
+            "title": "Reviewing the Posted Entries Relating to the Payment"
+        }
+    ]
+}
