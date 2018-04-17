@@ -31,20 +31,20 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="./assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.2">
     
     
       
-        <title>Clever Dynamics</title>
+        <title>Changelog - Clever Dynamics</title>
       
     
     
-      <link rel="stylesheet" href="./assets/stylesheets/application.8d40d89b.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.8d40d89b.css">
       
     
     
-      <script src="./assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -70,7 +70,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#additions-documentation" tabindex="1" class="md-skip">
+      <a href="#shop-floor-data-capture-changelog" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -79,7 +79,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="." title="Clever Dynamics" class="md-header-nav__button md-logo">
+        <a href="../.." title="Clever Dynamics" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -96,7 +96,7 @@
                 Clever Dynamics
               </span>
               <span class="md-header-nav__topic">
-                Additions Documentation
+                Changelog
               </span>
             
           
@@ -165,20 +165,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-    <a href="." title="Additions Documentation" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../.." title="Additions Documentation" class="md-nav__link">
       Additions Documentation
     </a>
-    
   </li>
 
     
@@ -188,7 +179,7 @@
 
 
   <li class="md-nav__item">
-    <a href="Extensions/" title="Extensions" class="md-nav__link">
+    <a href="../../Extensions/" title="Extensions" class="md-nav__link">
       Extensions
     </a>
   </li>
@@ -198,10 +189,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Payment Gateway
@@ -217,11 +210,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="Payment Gateway/Changelog/" title="Changelog" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+    <a href="./" title="Changelog" class="md-nav__link md-nav__link--active">
       Changelog
     </a>
+    
   </li>
 
         
@@ -250,7 +252,7 @@
 
 
   <li class="md-nav__item">
-    <a href="Payment Gateway/User Guide/Home/" title="Home" class="md-nav__link">
+    <a href="../User%20Guide/Home/" title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -262,7 +264,7 @@
 
 
   <li class="md-nav__item">
-    <a href="Payment Gateway/User Guide/Setup/" title="Setup" class="md-nav__link">
+    <a href="../User%20Guide/Setup/" title="Setup" class="md-nav__link">
       Setup
     </a>
   </li>
@@ -274,7 +276,7 @@
 
 
   <li class="md-nav__item">
-    <a href="Payment Gateway/User Guide/Using-Payment-Gateway/" title="Using Payment Gateway" class="md-nav__link">
+    <a href="../User%20Guide/Using-Payment-Gateway/" title="Using Payment Gateway" class="md-nav__link">
       Using Payment Gateway
     </a>
   </li>
@@ -315,7 +317,7 @@
 
 
   <li class="md-nav__item">
-    <a href="Shop Floor Data Capture (SFDC)/Changelog/" title="Changelog" class="md-nav__link">
+    <a href="../../Shop%20Floor%20Data%20Capture%20%28SFDC%29/Changelog/" title="Changelog" class="md-nav__link">
       Changelog
     </a>
   </li>
@@ -354,8 +356,101 @@
               
                 
                 
-                <h1 id="additions-documentation">Additions Documentation</h1>
-<p>This is the documentation for Dynamics Additions range of products from Technology Management Ltd.</p>
+                <h1 id="shop-floor-data-capture-changelog">Shop Floor Data Capture Changelog</h1>
+<h1 id="129">1.2.9</h1>
+<p><em>Lot Tracking for By-Products</em></p>
+<p>If one or more of the relevant by-products require Lot No. tracking a new “Lot
+No.” box is displayed for the user to enter/scan the Lot No. against which the
+put the by-product into stock.</p>
+<p><em>By-Product Bin Codes</em></p>
+<p>The location code and bin code against which to post the by-product journal line
+is now taken from the production order line rather than the header.</p>
+<p><em>Operator Codes in SFDC Device Log</em></p>
+<p>Fix for bug that would sometimes prevent the correct start/stop records being
+created in the SFDC Device Log for each operator that is working on the device.</p>
+<h1 id="128">1.2.8</h1>
+<p><em>Operator Access Codes</em></p>
+<p>New functionality to identify operators with access codes – rather than
+selecting an operator tile.</p>
+<p><em>Testing Framework</em></p>
+<p>A new testing framework to mock device input and improve testability.</p>
+<p>Callback Error</p>
+<p>Fix for “callback error” that would sometimes occur on posting by-products.</p>
+<h1 id="127">1.2.7</h1>
+<p><em>Lot Tracking Improvements</em></p>
+<p>New “Component Lot Handling” option on SFDC Setup page. Determines the behaviour
+of lot tracking on the Components page. Either a Lot No. column is shown (as
+before) or component lines are separated into distinct lots on the Item Tracking
+Lines against the production order component lines.</p>
+<p><em>SFDC Setup Page</em></p>
+<p>Controls presented more logically on SFDC Setup page.</p>
+<p><em>Show Components with 0 Remaining Quantity</em></p>
+<p>Continue to show components even when they have 0 remaining quantity. This is to
+allow consumption over the expected quantity.</p>
+<p><em>Bug Fixes</em></p>
+<p>Various fixes:</p>
+<ul>
+<li>
+<p>Divide by 0 error when there are no appropriate Prod. Order Routing Lines to
+    select</p>
+</li>
+<li>
+<p>Validate the Bin Code on the output item journal line to the bin on the
+    Prod. Order Line (rather than allowing the default bin code from the Item)</p>
+</li>
+<li>
+<p>Synchronise the Unit Cost between the Machine Centre and corresponding
+    Operator</p>
+</li>
+<li>
+<p>Take Capacity Unit of Measure from Work Centre if blank on the journal line</p>
+</li>
+<li>
+<p>Incorrect data can get the device stuck in a loop, unable to find the
+    next/previous Prod. Order Routing Line</p>
+</li>
+</ul>
+<h1 id="126">1.2.6</h1>
+<p><em>Production Groups</em></p>
+<p>Support for “Production Groups”. New data type that can be selected in the Data
+Selection fields on SFDC Setup. Alternatively, a single Machine Centre can be
+set to use Production Groups with a new field on the Machine Centre card.</p>
+<p>Production Groups provide an alternative way to define the Prod. Order Routing
+Line(s) that a machine is working on.</p>
+<p>The available groups and the Prod. Order Routing Lines which belong to each
+group must be defined through event subscribers and custom code (see Development
+Guide).</p>
+<p><em>Instructions Events</em></p>
+<p>New events allow custom subscribes to override the standard logic for retrieving
+instructions documents. See the Development Guide.</p>
+<p><em>Before Journal Line Events</em></p>
+<p>New events allow custom subscribers to inject code prior to journal line posting
+or handle the journal posting altogether.</p>
+<p><em>Device Switching</em></p>
+<p>A new field in SFDC Setup determines whether the Switch button is visible on the
+Output page or not.</p>
+<p><em>Parallel Routing</em></p>
+<p>Fix for bug that would result in error when parallel operations are used (and
+therefore Next/Previous Operation No. does not represent a single operation as
+previously assumed).</p>
+<h1 id="125">1.2.5</h1>
+<p><em>SFDC Task List</em></p>
+<p>New page in NAV to show the Prod. Order Routing Lines as filtered and visible in
+the SFDC portal.</p>
+<p><em>Linking Machine Centres and Operators</em></p>
+<p>A new “Machine Centre No.” field on the operator record provides the link
+between the two. Data is synchronised between the two and this field is
+respected when posting journal lines for operator time.</p>
+<p><em>Showing Operations for Parent Work Centre</em></p>
+<p>A new “Show Prod. Orders from Work Centre” checkbox in SFDC Setup determines
+whether operations for a Machine Centre’s parent Work Centre are displayed in
+the list of Prod. Order Routing Lines to select from.</p>
+<p><em>Posting Negative Consumption</em></p>
+<p>Support for posting negative quantities of consumption from the components page.</p>
+<p><em>Duplicate Routing Comments</em></p>
+<p>Fix for bug that was showing duplicate comments retrieved from both the Routing
+Line and Prod. Order Routing Line. Comments are now only taken from the Prod.
+Order Routing Line.</p>
                 
                   
                 
@@ -376,14 +471,28 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
+          <a href="../../Extensions/" title="Extensions" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Extensions
+              </span>
+            </div>
+          </a>
         
-          <a href="Extensions/" title="Extensions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+        
+          <a href="../User%20Guide/Home/" title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Extensions
+                Home
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -413,9 +522,9 @@
       
     </div>
     
-      <script src="./assets/javascripts/application.b438e6c5.js"></script>
+      <script src="../../assets/javascripts/application.b438e6c5.js"></script>
       
-      <script>app.initialize({version:"0.17.3",url:{base:"."}})</script>
+      <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
       
     
     
