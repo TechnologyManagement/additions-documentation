@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-04-17</lastmod>
+     <lastmod>2018-09-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>/Extensions/</loc>
-     <lastmod>2018-04-17</lastmod>
+     <lastmod>2018-09-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,8 +20,44 @@
     
         
     <url>
-     <loc>/Payment Gateway/Changelog/</loc>
-     <lastmod>2018-04-17</lastmod>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/Shop Floor Data Capture (SFDC)/SFDC Changelog/</loc>
+     <lastmod>2018-09-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/Shop Floor Data Capture (SFDC)/SFDC Development Guide/</loc>
+     <lastmod>2018-09-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -36,8 +72,66 @@
     
         
     <url>
-     <loc>/Shop Floor Data Capture (SFDC)/Changelog/</loc>
-     <lastmod>2018-04-17</lastmod>
+     <loc>/Payment Gateway/Payment Gateway Changelog/</loc>
+     <lastmod>2018-09-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/Document Links/Document Links Changelog/</loc>
+     <lastmod>2018-09-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/Shipment Management/Changelog/</loc>
+     <lastmod>2018-09-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
